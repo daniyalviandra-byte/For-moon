@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Bulan - Koleksi Puisi Cinta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Georgia:wght@400&display=swap" rel="stylesheet">
+    <style>
+        /* Reset dan Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c1810; /* Warna teks gelap, hangat */
+            background-color: #f8f1e4; /* Latar belakang krem muda untuk nuansa terang */
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
+                linear-gradient(135deg, #f4e4bc 0%, #e8d5a3 100%); /* Efek kusut vintage paper dengan gradient lembut */
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparan untuk efek paper fresh */
+            border-radius: 10px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Bayangan halus untuk elegan */
+            padding: 40px;
+            backdrop-filter: blur(5px); /* Efek vintage fresh */
+        }
+
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #4a2c0b; /* Gelap tapi hangat */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome {
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 50px;
+            padding: 20px;
+            background: rgba(248, 241, 228, 0.5);
+            border-left: 4px solid #8b4513;
+            font-size: 1.1em;
+        }
+
+        /* Chapter Styles - Accordion-like */
+        .chapters {
+            list-style: none;
+        }
+
+        .chapter {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(139, 69, 19, 0.3);
+        }
+
+        .chapter-title {
+            background: rgba(139, 69, 19, 0.1);
+            padding: 15px 20px;
+            cursor: pointer;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #4a2c0b;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chapter-title:hover {
+            background: rgba(139, 69, 19, 0.2);
+            transform: translateX(5px);
+        }
+
+        .chapter-title::after {
+            content: '+';
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+
+        .chapter-title.active::after {
+            content: '−';
+            transform: rotate(180deg);
+        }
+
+        .chapter-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+            background: rgba(248, 241, 228, 0.3);
+            border-radius: 0 0 5px 5px;
+        }
+
+        .chapter-content.active {
+            max-height: 500px; /* Sesuaikan dengan panjang konten */
+            padding: 20px;
+        }
+
+        .poem {
+            white-space: pre-line; /* Menjaga format puisi */
+            font-style: italic;
+            margin: 10px 0;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        .about {
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(139, 69, 19, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .about h2 {
+            margin-bottom: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .chapter-title {
+                font-size: 1.2em;
+                padding: 12px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Untuk Bulan</h1>
+        
+        <div class="welcome">
+            Selamat datang, Bulan. Di sini, setiap bait adalah ungkapan cinta yang tulus, terinspirasi dari sosokmu yang mempesona. Biarkan setiap kata menyentuh hatimu, seperti angin sepoi yang membawa harum bunga.
+        </div>
+
+        <ul class="chapters">
+            <li class="chapter">
+                <div class="chapter-title" onclick="toggleChapter(this)">
+                    “Mata Indahmu”
+                </div>
+                <div class="chapter-content">
+                    <div class="poem">
+Tak lagi perlu mencari Bulan di langit,
+sebab ia telah menetap
+di matanya yang bening dan tenang. 
+
+Ada cahaya di sana—
+bukan pantulan,
+melainkan sesuatu yang tumbuh
+setiap kali ia menatap dunia dengan diam. 
+
+Senja menjadi malu,
+pagi menunduk,
+karena keduanya tahu
+tak ada sinar yang seindah itu. 
+
+Ia tak sedang memandang,
+ia sedang menenangkan semesta,
+membiarkan setiap rindu
+menemukan rumahnya sendiri.
+                    </div>
+                </div>
+            </li>
+
+            <li class="chapter">
+                <div class="chapter-title" onclick="toggleChapter(this)">
+                    “Senyumanmu yang Manis”
+                </div>
+                <div class="chapter-content">
+                    <div class="poem">
+Saat Bulan tersenyum,
+dunia seperti melambat—
+seakan semua suara tahu kapan harus diam. 
+
+Bukan sekadar lengkung di bibirnya,
+tapi cara matanya ikut berbicara,
+membuat malam terasa lebih hidup. 
+
+Senyum itu tak butuh kata,
+cukup hadir,
+dan penat pun luluh tanpa permisi. 
+
+Di wajahnya,
+ada sesuatu yang tak bisa dijelaskan,
+hanya bisa dirasakan—
+seperti cinta yang datang tanpa janji.
+                    </div>
+                </div>
+            </li>
+
+            <li class="chapter">
+                <div class="chapter-title" onclick="toggleChapter(this)">
+                    "Jatuh Cinta di Balik Layar"
+                </div>
+                <div class="chapter-content">
+                    <div class="poem">
+di balik cahaya ponsel,
+ada hati yang bergetar tanpa alasan,
+bukan karena sinyal,
+tapi karena satu nama muncul lagi. 
+
+rindu diketik,
+senyum dikirim,
+tanpa pernah tahu
+apakah yang di seberang sana
+merasakan hal yang sama.
+                    </div>
+                </div>
+            </li>
+
+            <li class="chapter">
+                <div class="chapter-title" onclick="toggleChapter(this)">
+                    "Bunga Bulan"
+                </div>
+                <div class="chapter-content">
+                    <div class="poem">
+Ada bunga yang tak tumbuh di tanah,
+tapi di antara cahaya malam.
+Wanginya lembut,
+seperti namamu yang kusembunyikan di dada. 
+
+Jika dunia menanyakan rinduku,
+cukup kulihat ke langit—
+karena di sana,
+bunga itu selalu bersinar atas namamu.
+                    </div>
+                </div>
+            </li>
+
+            <li class="chapter">
+                <div class="chapter-title" onclick="toggleChapter(this)">
+                    “Bulan yang Diam”
+                </div>
+                <div class="chapter-content">
+                    <div class="poem">
+Bulan berjalan di langit,
+sementara hati hanya menatap dari jauh.
+Tak ada kata,
+hanya rindu yang disembunyikan di balik senyum. 
+
+Ia tak pernah tahu,
+setiap sinarnya menenangkan yang resah.
+Dan entah kenapa,
+diam ini terasa cukup—
+selama Bulan masih di sana.
+                    </div>
+                </div>
+            </li>
+
+            <li class="chapter">
+                <div class="chapter-title" onclick="toggleChapter(this)">
+                    “Saat Bulan Tak Lagi Menoleh”
+                </div>
+                <div class="chapter-content">
+                    <div class="poem">
+Bulan pernah jadi alasan langit tersenyum,
+dan ada hati yang diam-diam ikut bahagia.
+Kini sinarnya jatuh di langit lain,
+lebih terang, lebih hangat—bukan di sini. 
+
+Tak apa.
+Rindu bisa tetap hidup tanpa dibalas,
+cinta pun bisa tenang tanpa dimiliki.
+Hanya…
+kadang malam terasa sedikit lebih dingin,
+sejak Bulan tak lagi menoleh ke arah ini.
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <div class="about">
+            <h2>Tentang Koleksi Ini</h2>
+            <div class="poem">
+Puisi-puisi ini diciptakan khusus untukmu, sebagai ungkapan cinta yang tulus dan abadi. Semoga setiap kata menyentuh hatimu seperti pelukan hangat di malam dingin. Dibuat dengan penuh kasih, untuk perempuan istimewa seperti kamu.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleChapter(element) {
+            const content = element.nextElementSibling;
+            const isActive = content.classList.contains('active');
+
+            // Tutup semua chapter lain
+            document.querySelectorAll('.chapter-content').forEach(c => {
+                c.classList.remove('active');
+            });
+            document.querySelectorAll('.chapter-title').forEach(t => {
+                t.classList.remove('active');
+            });
+
+            // Toggle chapter yang diklik jika tidak aktif
+            if (!isActive) {
+                content.classList.add('active');
+                element.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
